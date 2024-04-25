@@ -7,12 +7,12 @@ PHPの軽量フレームワークである、Slim4でクリーンアーキテク
 
 ### 1. コンテナのビルド
 ```shell
-docker compose build
+docker compose -f docker-compose.prod.yml build
 ```
 
 ### 2. コンテナの起動
 ```shell
-docker compose up -d
+docker compose -f docker-compose.prod.yml up -d
 ```
 
 ### 3. ローカルホストへアクセス
@@ -21,5 +21,5 @@ docker compose up -d
 ### 4. コンテナの削除
 
 ```shell
-docker compose down
+docker compose -f docker-compose.prod.yml down
 ```
