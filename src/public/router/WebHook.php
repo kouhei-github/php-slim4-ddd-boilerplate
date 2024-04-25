@@ -26,8 +26,9 @@ class WebHook implements WebHookInterface
     public function register(): App
     {
         $app = AppFactory::create();
-        $app->get('/', function (Request $request, Response $response, $args) {return $this->authHandler->login($request, $response, $args);});
-        $app->get('/login', function (Request $request, Response $response, $args) {return $this->authHandler->login($request, $response, $args);});
+
+        $app->get('/', fn(Request $request, Response $response, $args) => $this->authHandler->login($request, $response, $args));
+        $app->get('/login', fn(Request $request, Response $response, $args) => $this->authHandler->login($request, $response, $args));
         return $app;
     }
 
