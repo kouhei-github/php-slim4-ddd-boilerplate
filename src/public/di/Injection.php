@@ -12,9 +12,9 @@ class Injection
 {
     static function inject(): WebHookInterface
     {
-        $hashServiceInterface       = Hash::builder();
+        $hashServiceInterface    = Hash::builder();
         $encryptServiceInterface = Encryption::builder();
-        $authHandlerInterface       = AuthHandler::builder($hashServiceInterface, $encryptServiceInterface);
+        $authHandlerInterface    = AuthHandler::builder($hashServiceInterface, $encryptServiceInterface);
         return WebHook::builder($authHandlerInterface);
     }
 }

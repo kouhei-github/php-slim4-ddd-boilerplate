@@ -25,9 +25,9 @@ class AuthHandler implements AuthHandlerInterface
 
     public function login(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface
     {
-        $algo = new AlgorithmDomain(PASSWORD_BCRYPT);
-        $hashed = $this->hashService->password_hash("test", $algo);
-        $data = ["before" => "test", "hash" => $hashed];
+        $algo    = new AlgorithmDomain(PASSWORD_BCRYPT);
+        $hashed  = $this->hashService->password_hash("test", $algo);
+        $data    = ["before" => "test", "hash" => $hashed];
         $payload = json_encode(
             $data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK
         );
