@@ -1,14 +1,14 @@
 version: "3"
 services:
   app:
-    image: "php-slim-image"
+    image: "php-slim-image-prod"
     build:
       # Dockerfileを格納するフォルダのパス
       context: .
       # Dockerfileのファイル名
       dockerfile: ./container/api/Dockerfile
-    volumes:
-      # ./srcフォルダをコンテナ内の/var/www/htmlにマウント
-      - ./src:/var/www/app
+#    volumes:
+#      # ./srcフォルダをコンテナ内の/var/www/htmlにマウント
+#      - ./src:/var/www/app
     ports:
       - "9000:8888"

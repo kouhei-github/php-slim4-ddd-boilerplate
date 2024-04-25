@@ -18,7 +18,6 @@ WORKDIR /var/www/app
 # [ STAGE-1 ]カラ取得
 COPY --from=dep /app/ /var/www/app/
 
-
 # 独自のphp.iniファイル(PHPの設定ファイル)を
 # コンテナ内の/usr/local/etc/php/ディレクトリにコピー
 COPY container/api/php.ini /usr/local/etc/php/
