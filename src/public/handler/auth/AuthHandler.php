@@ -20,7 +20,7 @@ class AuthHandler implements AuthHandlerInterface
     function __construct(HashInterface $hashService, EncryptionInterface $encryptService)
     {
         $this->encryptService = $encryptService;
-        $this->hashService   = $hashService;
+        $this->hashService    = $hashService;
     }
 
     public function login(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface
