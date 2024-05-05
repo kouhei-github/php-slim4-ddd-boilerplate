@@ -12,6 +12,8 @@ RUN composer dump-autoload
 # PHP [ STAGE-2 ]
 FROM php:8.2.12-fpm
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # 作業ディレクトリを/var/wwwに設定
 WORKDIR /var/www/app
 

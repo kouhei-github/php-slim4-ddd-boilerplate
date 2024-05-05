@@ -1,4 +1,4 @@
 vendor
 .idea
-db
+container/db
 .env

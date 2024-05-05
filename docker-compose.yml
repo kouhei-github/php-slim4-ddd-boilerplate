@@ -12,6 +12,10 @@ services:
       - ./src:/var/www/app
     ports:
       - "9000:8888"
+    depends_on:
+      - db
+    env_file:
+      - .env
 
   db:
     image: mysql:8
