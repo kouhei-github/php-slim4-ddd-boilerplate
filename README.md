@@ -23,3 +23,65 @@ docker compose -f docker-compose.prod.yml up -d
 ```shell
 docker compose -f docker-compose.prod.yml down
 ```
+
+---
+
+## Database関連
+
+### マイグレーション
+#### 1. マイグレーションファイルの作成
+下記を実行するとこのようなファイルが作成される
+**created db/migrations/20240505023238_create_user_migration.php**
+```shell
+vendor/bin/phinx create  CreateUserMigration # 作りたいマイグレーションファイル
+```
+
+#### 2. マイグレーションファイルの反映
+```shell
+vendor/bin/phinx migrate
+```
+
+#### 3. マイグレーションファイルのロールバック
+```shell
+vendor/bin/phinx rollback
+```
+
+## エンドポイントの確認
+### GET アクセスの確認
+```text
+http://localhost:9000/api/v1/
+```
+#### Request Headers
+| Header Keys | Header Values        |
+|-------------|----------------------|
+| なし          | なし|
+
+---
+
+### POST ユーザーの追加
+```text
+http://localhost:9000/api/v1/user/
+```
+
+#### Request Body
+```json
+{
+    "email": "test@test.com",
+    "name": "test"
+}
+```
+
+---
+
+### GET ユーザーの取得
+```text
+http://localhost:9000/api/v1/user/1
+```
+
+#### Request Headers
+| Header Keys | Header Values        |
+|-------------|----------------------|
+| なし          | なし|
+
+---
+
