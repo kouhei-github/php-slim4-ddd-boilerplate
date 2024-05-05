@@ -1,6 +1,6 @@
 <?php
 
-namespace domain\security;
+namespace domain\vd\security;
 
 const ALGORITHMS =[PASSWORD_BCRYPT, PASSWORD_DEFAULT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID];
 

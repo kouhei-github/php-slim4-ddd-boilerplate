@@ -2,9 +2,10 @@
 
 namespace handler\auth;
 
-use domain\security\AlgorithmDomain;
+use domain\vd\security\AlgorithmDomain;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use repository\UserRepositoryInterface;
 use service\security\EncryptionInterface;
 use service\security\HashInterface;
 
@@ -17,7 +18,9 @@ class AuthHandler implements AuthHandlerInterface
 {
     private HashInterface $hashService;
     private EncryptionInterface $encryptService;
-    function __construct(HashInterface $hashService, EncryptionInterface $encryptService)
+    function __construct(
+        HashInterface $hashService,
+        EncryptionInterface $encryptService)
     {
         $this->encryptService = $encryptService;
         $this->hashService    = $hashService;
@@ -37,6 +40,9 @@ class AuthHandler implements AuthHandlerInterface
 
     static function builder(HashInterface $hashService, EncryptionInterface $encryptService): AuthHandlerInterface
     {
-        return new static($hashService, $encryptService);
+        return new static(
+            $hashService,
+            $encryptService
+        );
     }
 }

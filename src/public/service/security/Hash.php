@@ -3,7 +3,7 @@
 namespace service\security;
 
 
-use domain\security\AlgorithmDomain;
+use domain\vd\security\AlgorithmDomain;
 
 interface HashInterface
 {
