@@ -33,17 +33,20 @@ docker compose -f docker-compose.prod.yml down
 下記を実行するとこのようなファイルが作成される
 **created db/migrations/20240505023238_create_user_migration.php**
 ```shell
-vendor/bin/phinx create  CreateUserMigration # 作りたいマイグレーションファイル
+make migrate_create name=CreateUserMigration # 作りたいマイグレーションファイル
+# vendor/bin/phinx create  CreateUserMigration # 作りたいマイグレーションファイル
 ```
 
 #### 2. マイグレーションファイルの反映
 ```shell
-vendor/bin/phinx migrate
+make migrate_up
+# vendor/bin/phinx migrate
 ```
 
 #### 3. マイグレーションファイルのロールバック
 ```shell
-vendor/bin/phinx rollback
+make migrate_down
+# vendor/bin/phinx rollback
 ```
 
 ## エンドポイントの確認
