@@ -10,6 +10,7 @@ services:
     volumes:
       # ./srcフォルダをコンテナ内の/var/www/htmlにマウント
       - ./src:/var/www/app
+      - /var/www/app/vendor
     ports:
       - "9000:8888"
     depends_on:
